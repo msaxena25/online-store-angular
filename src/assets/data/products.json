@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "title": "Men's Casual T-shirt",
+        "category": "T-shirt",
+        "price": 799,
+        "discount": 15,
+        "rating": {
+            "rate": 4.5,
+            "count": 120
+        },
+        "image": "https://images.pexels.com/photos/1335076/pexels-photo-1335076.jpeg",
+        "color": "Red",
+        "description": "This men's casual T-shirt is perfect for any casual outing. Made from soft cotton fabric, it offers comfort and breathability throughout the day. It features a simple yet stylish design with a round neckline and short sleeves. The vibrant red color adds a bold statement to your wardrobe."
+    },
+    {
+        "id": 2,
+        "title": "Women's Long T-shirt",
+        "category": "Long T-shirt",
+        "price": 899,
+        "discount": 20,
+        "rating": {
+            "rate": 4.0,
+            "count": 85
+        },
+        "image": "https://images.pexels.com/photos/1396134/pexels-photo-1396134.jpeg",
+        "color": "Green",
+        "description": "This women's long T-shirt brings both comfort and style in one piece. Featuring a loose fit and a relaxed neckline, it's perfect for laid-back days. Whether you're lounging at home or meeting friends, this top is sure to add a touch of style to your look. The rich green color makes it stand out effortlessly."
+    },
+    {
+        "id": 3,
+        "title": "Kid's Colorful T-shirt",
+        "category": "T-shirt",
+        "price": 499,
+        "discount": 10,
+        "rating": {
+            "rate": 4.7,
+            "count": 150
+        },
+        "image": "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg",
+        "color": "Blue",
+        "description": "This kid's T-shirt is both fun and functional. Designed with vibrant colors, it adds a pop to any outfit. Crafted from soft cotton fabric, it is perfect for active kids who love to play and explore. The colorful design and blue tones make it perfect for casual wear."
+    },
+    {
+        "id": 4,
+        "title": "Men's Polo Shirt",
+        "category": "Polo",
+        "price": 1299,
+        "discount": 25,
+        "rating": {
+            "rate": 4.6,
+            "count": 95
+        },
+        "image": "https://images.pexels.com/photos/3453431/pexels-photo-3453431.jpeg",
+        "color": "Black",
+        "description": "Men's Polo Shirt crafted for both style and comfort. Featuring a classic design, the shirt is perfect for both casual and semi-formal occasions. The black color adds a refined and sleek look, making it a versatile piece in your wardrobe. The soft cotton material ensures maximum comfort."
+    },
+    {
+        "id": 5,
+        "title": "Women's Summer Dress",
+        "category": "Dress",
+        "price": 1699,
+        "discount": 30,
+        "rating": {
+            "rate": 4.3,
+            "count": 120
+        },
+        "image": "https://images.pexels.com/photos/1518584/pexels-photo-1518584.jpeg",
+        "color": "Pink",
+        "description": "This lightweight summer dress is the perfect addition to your wardrobe. Its vibrant pink color and comfortable fit make it a go-to piece for warmer days. Whether you're going for a casual brunch or an afternoon stroll, this dress will keep you cool and stylish all day long."
+    },
+    {
+        "id": 6,
+        "title": "Men's Hoodie",
+        "category": "Hoodie",
+        "price": 1599,
+        "discount": 10,
+        "rating": {
+            "rate": 4.8,
+            "count": 200
+        },
+        "image": "https://images.pexels.com/photos/3771102/pexels-photo-3771102.jpeg",
+        "color": "Grey",
+        "description": "Stay cozy and stylish in this men's hoodie. Made from a soft and warm fabric, it features a comfortable fit, a kangaroo pocket, and a drawstring hood. Perfect for chilly evenings or casual outings, this hoodie combines practicality with fashion."
+    },
+    {
+        "id": 7,
+        "title": "Men's Slim Fit Jeans",
+        "category": "Jeans",
+        "price": 1299,
+        "discount": 15,
+        "rating": {
+            "rate": 4.7,
+            "count": 75
+        },
+        "image": "https://images.pexels.com/photos/4050321/pexels-photo-4050321.jpeg",
+        "color": "Blue",
+        "description": "These men's slim fit jeans are made for style and comfort. Featuring a modern, trendy design, these jeans are perfect for casual outings or a night out. The high-quality denim ensures long-lasting durability, while the slim fit gives them a sharp look."
+    },
+    {
+        "id": 8,
+        "title": "Women's Jacket",
+        "category": "Jacket",
+        "price": 2199,
+        "discount": 25,
+        "rating": {
+            "rate": 4.6,
+            "count": 110
+        },
+        "image": "https://images.pexels.com/photos/1704125/pexels-photo-1704125.jpeg",
+        "color": "Black",
+        "description": "This women's jacket offers both warmth and style. Perfect for cooler days, it features a sleek black design, front zip closure, and comfortable fit. The high-quality fabric ensures comfort while keeping you warm."
+    },
+    {
+        "id": 9,
+        "title": "Men's Sports Shorts",
+        "category": "Shorts",
+        "price": 799,
+        "discount": 10,
+        "rating": {
+            "rate": 4.5,
+            "count": 180
+        },
+        "image": "https://images.pexels.com/photos/3886940/pexels-photo-3886940.jpeg",
+        "color": "Dark Blue",
+        "description": "These men's sports shorts are perfect for workouts or casual outings. Made from lightweight fabric, they provide comfort and breathability. With an elastic waistband and a sleek design, they're a versatile addition to any sportswear collection."
+    },
+    {
+        "id": 10,
+        "title": "Women's Sweatshirt",
+        "category": "Sweatshirt",
+        "price": 1099,
+        "discount": 15,
+        "rating": {
+            "rate": 4.2,
+            "count": 130
+        },
+        "image": "https://images.pexels.com/photos/1508707/pexels-photo-1508707.jpeg",
+        "color": "White",
+        "description": "This women's sweatshirt is the epitome of comfort. Crafted from soft cotton material, it features a relaxed fit, a round neckline, and ribbed cuffs. Ideal for cozy days at home or layering over casual outfits."
+    },
+    {
+        "id": 11,
+        "title": "Kid's Summer T-shirt",
+        "category": "T-shirt",
+        "price": 399,
+        "discount": 5,
+        "rating": {
+            "rate": 4.9,
+            "count": 230
+        },
+        "image": "https://images.pexels.com/photos/1070896/pexels-photo-1070896.jpeg",
+        "color": "Yellow",
+        "description": "This kid's summer T-shirt features a fun and playful design. Made from soft, breathable fabric, it's perfect for warm days. The bright yellow color will add a cheerful touch to any child's wardrobe."
+    },
+    {
+        "id": 12,
+        "title": "Men's Casual Shirt",
+        "category": "Shirt",
+        "price": 1299,
+        "discount": 10,
+        "rating": {
+            "rate": 4.5,
+            "count": 160
+        },
+        "image": "https://images.pexels.com/photos/1239295/pexels-photo-1239295.jpeg",
+        "color": "Blue",
+        "description": "This men's casual shirt is the perfect choice for a relaxed, stylish look. It features a classic design, button-down closure, and a comfortable fit. Made from soft cotton fabric, it's great for casual meetings or everyday wear."
+    },
+    {
+        "id": 13,
+        "title": "Women's Summer Blouse",
+        "category": "Blouse",
+        "price": 899,
+        "discount": 10,
+        "rating": {
+            "rate": 4.4,
+            "count": 100
+        },
+        "image": "https://images.pexels.com/photos/1506711/pexels-photo-1506711.jpeg",
+        "color": "White",
+        "description": "This women's summer blouse is perfect for hot days. Made from lightweight fabric, it features a flowy design that keeps you cool and stylish. The delicate white color and airy feel make it an essential wardrobe piece."
+    },
+    {
+        "id": 14,
+        "title": "Men's Casual Denim Jacket",
+        "category": "Jacket",
+        "price": 1799,
+        "discount": 20,
+        "rating": {
+            "rate": 4.8,
+            "count": 90
+        },
+        "image": "https://images.pexels.com/photos/1712204/pexels-photo-1712204.jpeg",
+        "color": "Denim Blue",
+        "description": "This men's denim jacket is a classic piece that blends style with functionality. The rugged denim fabric provides durability, while the design keeps it versatile enough for a variety of occasions. The stylish denim blue color adds to its charm."
+    },
+    {
+        "id": 15,
+        "title": "Women’s Casual Skirt",
+        "category": "Skirt",
+        "price": 899,
+        "discount": 15,
+        "rating": {
+            "rate": 4.3,
+            "count": 50
+        },
+        "image": "https://images.pexels.com/photos/1597476/pexels-photo-1597476.jpeg",
+        "color": "Black",
+        "description": "This women's casual skirt is the perfect blend of style and comfort. Designed with a high waist and a relaxed fit, it's ideal for both casual outings and semi-formal events. The black color makes it easy to pair with a variety of tops."
+    }
+]

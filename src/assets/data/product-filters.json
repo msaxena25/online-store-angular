@@ -1,0 +1,31 @@
+{
+    "categories": [
+      { "id": 1, "name": "T-shirt" },
+      { "id": 2, "name": "Long T-shirt" },
+      { "id": 3, "name": "Jeans" },
+      { "id": 4, "name": "Hoodie" },
+      { "id": 5, "name": "Shirt" },
+      { "id": 6, "name": "Jacket" },
+      { "id": 7, "name": "Dress" },
+      { "id": 8, "name": "Blouse" }
+    ],
+    "colors": [
+      { "id": 1, "name": "Red" },
+      { "id": 2, "name": "Green" },
+      { "id": 3, "name": "Blue" },
+      { "id": 4, "name": "Black" },
+      { "id": 5, "name": "White" }
+    ],
+    "discounts": [
+      { "id": 1, "name": "10% and above" },
+      { "id": 2, "name": "20% and above" },
+      { "id": 3, "name": "30% and above" },
+      { "id": 4, "name": "50% and above" }
+    ],
+    "priceRange": {
+      "min": 100,
+      "max": 5000,
+      "step": 100
+    }
+  }
+  

@@ -1,0 +1,74 @@
+
+
+  <div *ngIf="filterOptions" class="filter-container">
+    <h3>Filter Products</h3>
+  
+    <!-- Categories Filter -->
+    <div class="filter-group">
+      <h4>Categories</h4>
+      <div *ngFor="let category of filterOptions.categories">
+        <label>
+          <input 
+            type="checkbox" 
+            [value]="category.id" 
+            (change)="onCategoryChange(category.id)"
+          />
+          {{ category.name }}
+        </label>
+      </div>
+    </div>
+
+      <!-- Product Name -->
+  <div class="form-group">
+    <label for="productName">Product Name</label>
+    <input type="text" id="productName" [(ngModel)]="productName" class="form-control" placeholder="Search by name">
+  </div>
+  
+    <!-- Colors Filter -->
+    <div class="filter-group">
+      <h4>Colors</h4>
+      <div *ngFor="let color of filterOptions.colors">
+        <label>
+          <input 
+            type="checkbox" 
+            [value]="color.id" 
+            (change)="onColorChange(color.id)"
+          />
+          {{ color.name }}
+        </label>
+      </div>
+    </div>
+  
+    <!-- Discount Filter -->
+    <div class="filter-group">
+      <h4>Discount</h4>
+      <div *ngFor="let discount of filterOptions.discounts">
+        <label>
+          <input 
+            type="checkbox" 
+            [value]="discount.id" 
+            (change)="onDiscountChange(discount.id)"
+          />
+          {{ discount.name }}
+        </label>
+      </div>
+    </div>
+  
+    <!-- Price Range Filter -->
+    <div class="filter-group">
+      <h4>Price Range</h4>
+      <input 
+        type="range" 
+        [min]="filterOptions.priceRange.min" 
+        [max]="filterOptions.priceRange.max" 
+        [step]="filterOptions.priceRange.step" 
+        [(ngModel)]="selectedPriceRange"
+      />
+      <p>Price: ₹{{ selectedPriceRange }}</p>
+    </div>
+   <!-- Apply Filters Button -->
+    <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+    <!-- Reset Button -->
+    <button class="btn btn-secondary" (click)="resetFilters()">Reset Filters</button>
+  </div>
+  

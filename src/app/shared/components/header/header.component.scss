@@ -1,0 +1,148 @@
+
+.nav-div {
+  justify-content: flex-start;
+}
+.text-yellow {
+  color: #FFCC00 !important;
+  /* Yellow color */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+  /* White text for the links */
+}
+
+.app-navbar {
+  height: 72px;
+}
+
+.navbar-dark .navbar-brand {
+  color: #FFCC00 !important;
+  /* Yellow for company name */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #FFCC00;
+  /* Yellow hover effect on links */
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-color: white;
+  /* White toggler icon for small screens */
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px;
+}
+
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #ffd700;
+  font-size: 24px;
+  cursor: pointer;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; // Initially hidden
+  width: 250px;
+  height: 100%;
+  background: #000;
+  color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #ffd700;
+  }
+
+  .nav-item {
+    margin-top: 10px;
+
+    .nav-link {
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &:hover {
+        color: #ffd700;
+      }
+    }
+  }
+}
+
+.sidebar.open {
+  z-index: 1;
+  left: 0; // Show sidebar
+}
+
+/* Collapsed Sidebar */
+.collapsed {
+  width: 0px;
+  background: none;
+
+  .nav-link span,
+  .user-profile span {
+    display: none;
+  }
+}
+
+// Mobile-first approach
+
+.mobile-view {
+  // Default mobile styles (for screens <= 768px)
+  display: contents;
+}
+
+.desktop-viw-nav {
+  display: none;
+}
+
+// Tablet and Desktop styles
+@media screen and (min-width: 768px) {
+  .ul-categories {
+    display: flex;
+    flex-direction: row;
+
+    .nav-link {
+      padding-left: 10px;
+
+    }
+  }
+  .search-box {
+    width: 47%;
+  }
+  .nav-div {
+    justify-content: space-between;
+  }
+  .mobile-view {
+    display: none; // Example: change to flex layout for tablet and larger
+  }
+  .desktop-viw-nav {
+    display: flex;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .search-box {
+    width: 47%;
+  }
+  .mobile-view {
+    display: none;
+  }
+  .desktop-viw-nav {
+    display: block;
+  }
+  
+}
