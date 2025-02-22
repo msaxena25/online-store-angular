@@ -1,37 +1,38 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../../../core/services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { IProductDetails } from '../../../../core/interfaces/product-details.interface';
+import { BaseComponent } from '../../../../core/components/base.components';
 
 @Component({
   selector: 'app-product-details-page',
   templateUrl: './product-details-page.component.html',
   styleUrls: ['./product-details-page.component.scss']
 })
-export class ProductDetailsPageComponent {
-  product: any;
+export class ProductDetailsPageComponent extends BaseComponent {
+  product: IProductDetails | null = null;
   errorMessage = '';
 
-  constructor(private productService: ProductService,  private route: ActivatedRoute) { }
+  constructor(private productService: ProductService) {
+    super();
+  }
 
   ngOnInit(): void {
-    console.log('detail page')
-    const productId = +this.route.snapshot.paramMap.get('id')!; 
-    this.productService.getProductDetail(1).subscribe({
-      next: (data) => {
-        this.product = data;  // Success handler: assign data to product
-      },
-      error: (err) => {
-        this.errorMessage = 'There was an error fetching the product details.';
-        console.error('Error fetching product data:', err);  // Error handler
-      },
-      complete: () => {
-        console.log('Product fetch completed');  // Optional: handle completion if needed
-      }
-    });
+    const productId = this.getRouteParam('id');
+    if (productId) {
+      this.productService.getProductDetail(+productId).subscribe(product => {
+        console.log("👉  product id:", productId);
+        this.product = product;
+      });
+    }
+    // this.productService.getProductById(productId).subscribe(product => {
+    //   console.log("👉  product:", product);
+    //   this.product = product;
+    // });
+
   }
 
   addToCart() {
-    console.log('Product added to cart');
+    this.navigateTo('checkout')
   }
 
 }

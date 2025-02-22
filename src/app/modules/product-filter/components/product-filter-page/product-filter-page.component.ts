@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ProductService } from '../../../../core/services/product.service';
-import { IProductFilter, FilterOption } from '../../interfaces/product-filter.interface'; // Import model
+import { IProductFilter } from '../../../../core/interfaces/product-filter.interface'; // Import model
+import { ProductFilterService } from '../../../../core/services/product-filter.service';
 
 @Component({
   selector: 'app-product-filter-page',
@@ -16,14 +16,14 @@ export class ProductFilterPageComponent implements OnInit {
   selectedPriceRange: number = 100;
   productName: string = '';
 
-  constructor(private productService: ProductService) { }
+  constructor(private productFilterService: ProductFilterService) { }
 
   ngOnInit(): void {
     this.loadFilterOptions();
   }
 
   loadFilterOptions(): void {
-    this.productService.getProductFilters().subscribe({
+    this.productFilterService.getProductFilterOptions().subscribe({
       next: (data) => {
         this.filterOptions = data;  // Handle successful response
       },
@@ -71,16 +71,23 @@ export class ProductFilterPageComponent implements OnInit {
     this.selectedColors = [];
     this.selectedDiscounts = [];
     this.selectedPriceRange = 100;
+    // Emit reset filters event to parent component
+    this.productFilterService.updateFilter({
+      categories: [],
+      colors: [],
+      discounts: [],
+      selectedPrice: 100
+    });
   }
 
-  // This will be used to emit the filter values to parent component
   applyFilters() {
-    this.filterChange.emit({
+    const filterData = {
       categories: this.selectedCategories,
       productName: this.productName,
       selectedPrice: this.selectedPriceRange,
       discounts: this.selectedDiscounts,
-      color: this.selectedColors
-    });
+      colors: this.selectedColors
+    };
+    this.productFilterService.updateFilter(filterData);  // Update filters in the service
   }
 }

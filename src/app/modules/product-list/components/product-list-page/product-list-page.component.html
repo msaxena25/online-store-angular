@@ -6,25 +6,38 @@
     <p>Loading products...</p>
   </div>
 
-  <div>
-    <app-product-filter-page (filterChange)="onFilterChange($event)"></app-product-filter-page>
-  </div>
-
   <!-- Show error message if there's an error -->
   <div *ngIf="errorMessage" class="alert alert-danger text-center">
     {{ errorMessage }}
   </div>
 
-  <!-- Show products in a grid -->
-  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-    <!-- Loop through products and display each product -->
-    <div class="col" *ngFor="let product of products$ | async">
-      <div class="card h-100" (click)="viewProductDetail(product.id)" >
-        <img [src]="product.image" class="card-img-top fixed-img" alt="Product Image">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ product.title }}</h5>
-          <p class="price">${{ product.price }}</p>
-          <div class="mt-auto"></div> <!-- Push content to the bottom of the card -->
+
+</div>
+
+
+<!-- Main Content Row -->
+<div class="row">
+  <!-- Filter Component Column (First Column) -->
+  <div class="col-lg-3 col-md-4 col-sm-12 py-3">
+    <!-- Add your filter component HTML here -->
+    <div class="filter-container p-3 border bg-light">
+      <app-product-filter-page></app-product-filter-page>
+    </div>
+  </div>
+
+  <div class="col-lg-9 col-md-8 col-sm-12 py-3">
+    <!-- The content of this column will be rendered dynamically by the router outlet -->
+    <!-- Show products in a grid -->
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+      <!-- Loop through products and display each product -->
+      <div class="col" *ngFor="let product of filteredProducts">
+        <div class="card h-100" (click)="viewProductDetail(product.id)">
+          <img [src]="product.image" class="card-img-top fixed-img" alt="Product Image">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="price">${{ product.price }}</p>
+            <div class="mt-auto"></div> <!-- Push content to the bottom of the card -->
+          </div>
         </div>
       </div>
     </div>

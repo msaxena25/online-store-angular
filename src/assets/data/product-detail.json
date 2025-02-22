@@ -1,0 +1,38 @@
+{
+    "product_id": "1",
+    "title": "Stylish Leather Jacket",
+    "description": "A sleek, modern leather jacket for casual outings. Crafted from high-quality genuine leather, it offers both style and durability. Perfect for layering over a shirt or sweater. Available in multiple colors and sizes to suit your style.",
+    "material": "Genuine Leather",
+    "available_sizes": ["S", "M", "L", "XL"],
+    "available_colors": ["Black", "Brown", "Grey"],
+    "original_price": 999.00,
+    "discount_percentage": 25,
+    "price_after_discount": 749.25,
+    "stock_quantity": 50,
+    "brand": "Urban Wear",
+    "rating": 4.5,
+    "reviews_count": 120,
+    "is_on_sale": true,
+    "images": [
+      "https://www.voganow.com/cdn/shop/products/VNGJ-404-09-SL_1.jpg?v=1675262271",
+      "https://example.com/images/2.jpg",
+      "https://example.com/images/3.jpg"
+    ],
+    "product_url": "https://www.voganow.com/cdn/shop/products/VNGJ-404-09-SL_1.jpg?v=1675262271",
+    "category": "Outerwear",
+    "shipping_details": {
+      "free_shipping": true,
+      "estimated_delivery": "5-7 business days"
+    },
+    "options": {
+      "gift_wrapping": true,
+      "personalization": false
+    },
+    "seller_details": {
+      "seller_name": "Urban Apparel Co.",
+      "seller_rating": 4.8,
+      "contact": "contact@urbanapparel.com",
+      "location": "New York, NY"
+    }
+  }
+  

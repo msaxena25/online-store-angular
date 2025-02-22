@@ -1,17 +1,102 @@
+// General styles for product details page
 .container {
-    max-width: 1200px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.product-subheading {
+  font-size: 1.1rem;
+}
+
+.product-description {
+  font-size: 1.1rem;
+}
+
+.price-discount {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.sizes {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.size-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.colors {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.color-text {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.colors-div {
+  margin-top: 1rem;
+}
+
+.seller-info {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.shipping-details {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
-  
-  .card {
-    margin-bottom: 1rem;
+
+  li {
+    font-size: 1.1rem;
   }
-  
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  h4 {
-    font-size: 1.5rem;
-    color: #28a745; // Green color for price
-  }
-  
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.btn-outline-primary {
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.text-muted {
+  font-size: 1rem;
+}

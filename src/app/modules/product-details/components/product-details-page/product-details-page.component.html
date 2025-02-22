@@ -1,29 +1,73 @@
-<div *ngIf="errorMessage" class="alert alert-danger">
-  {{ errorMessage }}
-</div>
-
-<div *ngIf="product" class="container py-5">
+<div *ngIf='product' class="container py-5">
   <div class="row">
     <!-- Product Image -->
     <div class="col-md-6">
-      <img [src]="product.image" alt="Product Image" class="img-fluid rounded" style="max-width: 80%; height: auto;">
+      <img [src]="product.images[0]" class="img-fluid" alt="{{product.title}}">
     </div>
 
-    <!-- Product Info -->
+    <!-- Product Details -->
     <div class="col-md-6">
-      <h1 class="display-4">{{ product.title }}</h1>
-      <p class="text-muted">{{ product.category }}</p> <!-- Display Category -->
-      <p class="lead">{{ product.description }}</p>
+      <h1 class="product-title">{{product.title}}</h1>
+      <p><strong class="product-subheading">Category:</strong> {{product.category}}</p>
+      <p><strong class="product-subheading">Brand:</strong> {{product.brand}}</p>
+      <p><strong class="product-subheading">Material:</strong> {{product.material}}</p>
+      <p><strong class="product-subheading">Description:</strong></p>
+      <p class="product-description">{{product.description}}</p>
 
-      <!-- Rating Section -->
-      <div *ngIf="product.rating">
-        <p><strong>Rating: </strong>{{ product.rating.rate }} / 5 ({{ product.rating.count }} reviews)</p>
+      <!-- Price & Discount -->
+      <div class="price-discount">
+        <h3 class="text-danger mr-3">₹ {{product.price_after_discount | number:'1.0-2'}}</h3>
+        <span class="text-muted text-decoration-line-through">₹ {{product.original_price | number:'1.0-2'}}</span>
+        <span class="badge bg-success ml-2">{{product.discount_percentage}}% OFF</span>
       </div>
 
-      <h4 class="text-success">{{ product.price | currency }}</h4>
+      <!-- Availability & Options -->
+      <div class="availability-options">
+        <p><strong>Available Sizes:</strong></p>
+        <div class="sizes">
+          <button *ngFor="let size of product.available_sizes" class="btn btn-outline-primary rounded-circle size-btn">
+            {{size}}
+          </button>
+        </div>
 
-      <!-- Add to Cart Button -->
-      <button class="btn btn-dark btn-lg mt-4 text-white" (click)="addToCart()">Add to Cart</button>
+        <div class="colors-div">
+          <p><strong>Available Colors:</strong></p>
+          <div class="colors">
+            <span *ngFor="let color of product.available_colors" [ngStyle]="{'background': color.toLowerCase()}"
+              class="color-text">
+              {{color}}
+            </span>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <!-- Shipping Details -->
+      <div class="shipping-details">
+
+        <ul>
+          <li><strong>Shipping:</strong> Free Shipping</li>
+          <li><strong>Estimated Delivery:</strong> {{product.shipping_details.estimated_delivery}}</li>
+        </ul>
+      </div>
+
+      <!-- Seller Info -->
+      <div class="seller-info">
+        <p><strong>Seller:</strong> {{product.seller_details.seller_name}} (Rating:
+          {{product.seller_details.seller_rating}})</p>
+        <p><strong>Contact:</strong> <a
+            href="mailto:{{product.seller_details.contact}}">{{product.seller_details.contact}}</a></p>
+        <p><strong>Location:</strong> {{product.seller_details.location}}</p>
+      </div>
+
+
+      <!-- Buy Button & Shipping Info -->
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <button class="btn btn-primary btn-lg mt-4 text-white" (click)="addToCart()">Add to Cart</button>
+
+      </div>
     </div>
   </div>
 </div>
