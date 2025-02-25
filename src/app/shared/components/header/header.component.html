@@ -25,8 +25,8 @@
     </div>
     <!-- Navbar Links and Search -->
     <div class="collapse navbar-collapse desktop-viw-nav" id="navbarNav">
-       <!-- Company Name -->
-       <a class="navbar-brand text-yellow title-desktop" href="#">Y Company</a>
+      <!-- Company Name -->
+      <a class="navbar-brand text-yellow title-desktop" href="javascript:void(0)" (click)="onClickLogo()">Y Company</a>
       <ul class="navbar-nav ul-categories me-auto mb-lg-0">
         <!-- Categories (Men, Women, Kids) -->
         <li class="nav-item">
@@ -56,17 +56,21 @@
         </a>
 
         <!-- Checkout Icon -->
-        <a href="#" class="text-white">
+        <!-- <a href="#" class="text-white">
           <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
-        </a>
+        </a> -->
+        <div class="cart-icon text-white" (click)="goToBag()">
+          <i class="bi bi-bag"></i>
+          <span class="badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+        </div>
       </div>
     </div>
   </div>
 </nav>
 
 <div class="mobile-view">
-   <!-- Search Bar with Search Icon -->
-   <form class="search-box">
+  <!-- Search Bar with Search Icon -->
+  <form class="search-box">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-light" type="submit">
       <i class="bi bi-search"></i>

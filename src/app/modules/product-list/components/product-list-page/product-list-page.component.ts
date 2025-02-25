@@ -12,7 +12,6 @@ import { BaseComponent } from '../../../../core/components/base.components';
 export class ProductListPageComponent extends BaseComponent {
   products: IProduct[] = [];  // List of products
   filteredProducts: IProduct[] = [];  // Filtered products based on the applied filters
-  filterSubscription$: Subscription = new Subscription();  // Subscription to listen to filter changes
   // Observable for products
   products$ = this.productService.loadProducts();
 
@@ -47,16 +46,17 @@ export class ProductListPageComponent extends BaseComponent {
       }
     });
     // Listen to filter changes from the ProductFilterComponent
-    this.filterSubscription$ = this.filterService.filterChanged$.subscribe(filterData => {
+    const sub$ = this.filterService.filterChanged$.subscribe(filterData => {
       this.applyFilters(filterData);
     });
+    this.subscriptions$.add(sub$);
   }
 
   viewProductDetail(id: number): void {
-    console.log('hello')
     this.navigateTo(`/product/${id}`);
     // Navigate to the product detail page with the product ID
   }
+
   // Method to apply filters on the products
   applyFilters(filterData: any): void {
     this.errorMessage = null;
@@ -68,7 +68,7 @@ export class ProductListPageComponent extends BaseComponent {
 
       return isCategoryMatch && isColorMatch && isDiscountMatch && isPriceInRange;
     });
-    console.log("👉  this.filteredProducts.length:", this.filteredProducts.length);
+
     if (this.filteredProducts.length === 0) {
       this.errorMessage = 'No products available.';
     }
@@ -80,11 +80,5 @@ export class ProductListPageComponent extends BaseComponent {
 
     // Show all products
     this.filteredProducts = [...this.products];
-  }
-
-  ngOnDestroy(): void {
-    if (this.filterSubscription$) {
-      this.filterSubscription$.unsubscribe();
-    }
   }
 }

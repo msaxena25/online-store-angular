@@ -65,7 +65,8 @@
 
       <!-- Buy Button & Shipping Info -->
       <div class="d-flex justify-content-between align-items-center mt-4">
-        <button class="btn btn-primary btn-lg mt-4 text-white" (click)="addToCart()">Add to Cart</button>
+        <button *ngIf="!productAddedInCart" class="btn btn-primary btn-lg mt-4 text-white" (click)="addToCart()">Add to Cart</button>
+        <button *ngIf="productAddedInCart" class="btn btn-danger btn-lg mt-4 text-white" (click)="goToBag()">Go to Bag</button>
 
       </div>
     </div>

@@ -1,7 +1,7 @@
-
 .nav-div {
   justify-content: flex-start;
 }
+
 .text-yellow {
   color: #FFCC00 !important;
   /* Yellow color */
@@ -36,6 +36,21 @@
   padding: 10px;
 }
 
+.cart-icon {
+  position: relative;
+  font-size: 24px;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+}
 
 .toggle-btn {
   background: none;
@@ -44,6 +59,7 @@
   font-size: 24px;
   cursor: pointer;
 }
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -119,15 +135,19 @@
 
     }
   }
+
   .search-box {
     width: 47%;
   }
+
   .nav-div {
     justify-content: space-between;
   }
+
   .mobile-view {
     display: none; // Example: change to flex layout for tablet and larger
   }
+
   .desktop-viw-nav {
     display: flex;
   }
@@ -138,11 +158,13 @@
   .search-box {
     width: 47%;
   }
+
   .mobile-view {
     display: none;
   }
+
   .desktop-viw-nav {
     display: block;
   }
-  
+
 }

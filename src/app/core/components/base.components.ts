@@ -1,16 +1,21 @@
-import { OnInit, Directive, inject } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
-export abstract class BaseComponent {
+@Component({
+  template: ''
+})
+export abstract class BaseComponent implements OnDestroy {
   route: any;
   router: any;
+  subscriptions$ = new Subscription();
   constructor() {
     this.route = inject(ActivatedRoute);
     this.router = inject(Router);
   }
 
   // Get route parameters once
-  getRouteParam(param: string): string | null {
+  getRouteParam(param: string): string {
     return this.route.snapshot.paramMap.get(param);
   }
 
@@ -32,5 +37,15 @@ export abstract class BaseComponent {
   // Navigate with query parameters
   navigateWithQuery(path: string, queryParams: { [key: string]: any }) {
     this.router.navigate([path], { queryParams });
+  }
+
+  // Helper method to auto-add to sub object
+  addSub(subscription: Subscription) {
+    this.subscriptions$.add(subscription);
+  }
+
+
+  ngOnDestroy(): void {
+    this.subscriptions$.unsubscribe();
   }
 }

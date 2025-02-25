@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { IProduct } from '../interfaces/product.interface';
+import { IProductDetails } from '../interfaces/product-details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +62,7 @@ export class ProductService {
     );
   }
 
-  getProductDetail(productId: number): Observable<any> {
+  getProductDetail(productId: number): Observable<IProductDetails[]> {
     return this.http.get<any>(`${this.productDetailApiUrl}`).pipe(
       catchError(error => {
         console.error('Error fetching product data', error);

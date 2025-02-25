@@ -1,4 +1,5 @@
-{
+[
+  {
     "product_id": "1",
     "title": "Stylish Leather Jacket",
     "description": "A sleek, modern leather jacket for casual outings. Crafted from high-quality genuine leather, it offers both style and durability. Perfect for layering over a shirt or sweater. Available in multiple colors and sizes to suit your style.",
@@ -34,5 +35,40 @@
       "contact": "contact@urbanapparel.com",
       "location": "New York, NY"
     }
+  },
+  {
+    "product_id": "2",
+    "title": "Women's Long T-shirt",
+    "description": "This women's long T-shirt brings both comfort and style in one piece. Featuring a loose fit and a relaxed neckline, it's perfect for laid-back days. Whether you're lounging at home or meeting friends, this top is sure to add a touch of style to your look. The rich green color makes it stand out effortlessly.",
+    "material": "Cotton",
+    "available_sizes": ["S", "M", "L", "XL"],
+    "available_colors": ["Red", "Brown", "Black"],
+    "original_price": 1999.00,
+    "discount_percentage": 40,
+    "price_after_discount": 1199.40,
+    "stock_quantity": 20,
+    "brand": "Polo",
+    "rating": 4.1,
+    "reviews_count": 90,
+    "is_on_sale": true,
+    "images": [
+      "https://befli.in/wp-content/uploads/2021/12/438A7708-copy.jpg"
+    ],
+    "product_url": "https://befli.in/wp-content/uploads/2021/12/438A7708-copy.jpg",
+    "category": "Long T-shirt",
+    "shipping_details": {
+      "free_shipping": true,
+      "estimated_delivery": "5-7 business days"
+    },
+    "options": {
+      "gift_wrapping": true,
+      "personalization": false
+    },
+    "seller_details": {
+      "seller_name": "Urban Apparel Co.",
+      "seller_rating": 4.8,
+      "contact": "contact@urbanapparel.com",
+      "location": "New York, NY"
+    }
   }
-  
+]
