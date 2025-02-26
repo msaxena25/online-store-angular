@@ -4,16 +4,13 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { IProduct } from '../interfaces/product.interface';
 import { IProductDetails } from '../interfaces/product-details.interface';
+import { ApiUrls } from '../constants/api.urls.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   private productsSubject: BehaviorSubject<IProduct[]> = new BehaviorSubject<IProduct[]>([]);
-  // private apiUrl = 'https://fakestoreapi.com/products';
-
-  private apiUrl = 'assets/data/products.json';  // Path to the local JSON file
-  private productDetailApiUrl = 'assets/data/product-detail.json';  // Path to the local JSON file
 
   constructor(private http: HttpClient) { }
 
@@ -53,7 +50,7 @@ export class ProductService {
 
   // Fetch the product data from the API
   loadProducts(): Observable<IProduct[]> {
-    return this.http.get<any[]>(this.apiUrl).pipe(
+    return this.http.get<any[]>(ApiUrls.urls.products).pipe(
       catchError(error => {
         // Log the error to the console for debugging
         console.error('Error fetching products', error);
@@ -63,7 +60,7 @@ export class ProductService {
   }
 
   getProductDetail(productId: number): Observable<IProductDetails[]> {
-    return this.http.get<any>(`${this.productDetailApiUrl}`).pipe(
+    return this.http.get<any>(`${ApiUrls.urls.productDetail}`).pipe(
       catchError(error => {
         console.error('Error fetching product data', error);
         // Return a fallback observable with an empty array or custom error message

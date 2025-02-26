@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../../../core/services/product.service';
-import { Subscription } from 'rxjs';
 import { ProductFilterService } from '../../../../core/services/product-filter.service';
 import { IProduct } from '../../../../core/interfaces/product.interface';
 import { BaseComponent } from '../../../../core/components/base.components';
+import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
 @Component({
   selector: 'app-product-list-page',
   templateUrl: './product-list-page.component.html',
@@ -53,7 +53,7 @@ export class ProductListPageComponent extends BaseComponent {
   }
 
   viewProductDetail(id: number): void {
-    this.navigateTo(`/product/${id}`);
+    this.navigateTo(`${RouteUrls.route.product}/${id}`);
     // Navigate to the product detail page with the product ID
   }
 

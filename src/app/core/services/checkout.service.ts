@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { ICartProduct } from '../interfaces/cart-product.interface';
 import { IndexDbService } from './index-db.service';
+import { ApiUrls } from '../constants/api.urls.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +11,51 @@ import { IndexDbService } from './index-db.service';
 export class CheckoutService {
   private cart: ICartProduct[] = [];
   private cartSubject = new BehaviorSubject<ICartProduct[]>([]); // Store the products in the cart
+  priceDetails = {
+    totalMRP: 0,
+    totalDiscount: 0,
+    couponDiscount: 100,
+    platformFees: 30,
+    shippingFees: 20,
+    totalAmount: 0
+  };
 
   constructor(private http: HttpClient, private indexDbService: IndexDbService) {
     this.loadCartFromIndexedDB();
-   }
+  }
+
+  calculateCartSummary(items: ICartProduct[]): void {
+    let totalMRP = 0;
+    let totalDiscount = 0;
+    let totalDiscountedPrice = 0;
+
+    // Iterate through each product and calculate totals
+    items.forEach(product => {
+      product.totalPrice = product.originalPrice * product.quantity;
+      product.totalPriceAfterDiscount = product.discountedPrice * product.quantity;
+      totalMRP += product.totalPrice;  // Add to Total MRP
+      totalDiscount += (product.totalPrice - product.totalPriceAfterDiscount); // Add the discount amount
+      totalDiscountedPrice += product.totalPriceAfterDiscount; // Add to Total Discounted Price
+    });
+
+    // Final Total amount after all discounts
+    const totalAmount = totalDiscountedPrice - this.priceDetails.couponDiscount +
+      this.priceDetails.platformFees + this.priceDetails.shippingFees;
+
+    // Return the summary object
+    this.priceDetails.totalAmount = totalAmount;
+    this.priceDetails.totalDiscount = totalDiscount;
+    this.priceDetails.totalMRP = totalMRP;
+  }
 
   // Fetch address data from JSON file
   getAddress(): Observable<any> {
-    return this.http.get('assets/data/address.json');
+    return this.http.get(ApiUrls.urls.address);
   }
 
   // Fetch available offers data from JSON file
   getAvailableOffers(): Observable<any> {
-    return this.http.get('assets/data/available-offers.json');
+    return this.http.get(ApiUrls.urls.availableOffers);
   }
 
   // Method to add product to cart
@@ -40,7 +73,7 @@ export class CheckoutService {
   getCartCount() {
     return this.cartSubject.asObservable().pipe(
       map(cart =>
-        cart.reduce((acc, product) => acc + product.quantity, 0) // Calculate the total count of products
+        cart.reduce((acc, product) => acc + Number(product.quantity), 0) // Calculate the total count of products
       )
     );
   }
@@ -54,7 +87,6 @@ export class CheckoutService {
   private loadCartFromIndexedDB(): void {
     this.indexDbService.getAllProducts()
       .then((products: ICartProduct[]) => {
-        console.log("👉 products:", products);
         this.cartSubject.next(products);
       })
       .catch((error: Error) => {
@@ -74,8 +106,19 @@ export class CheckoutService {
   }
 
   // Remove product from the cart and IndexedDB
-  public removeProductFromIndexDB(id: number): void {
+  public removeProductFromIndexDB(id: string): void {
     this.indexDbService.deleteProduct(id)
+      .then(() => {
+        this.loadCartFromIndexedDB(); // Reload cart data after deletion
+      })
+      .catch((error: Error) => {
+        console.error('Error removing product from IndexedDB', error);
+      });
+  }
+
+  // Remove product from the cart and IndexedDB
+  public updateProduct(product: ICartProduct): void {
+    this.indexDbService.saveProduct(product)
       .then(() => {
         this.loadCartFromIndexedDB(); // Reload cart data after deletion
       })

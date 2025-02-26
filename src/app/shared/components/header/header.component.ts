@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { BaseComponent } from 'src/app/core/components/base.components';
+import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
 import { CheckoutService } from 'src/app/core/services/checkout.service';
 
 @Component({
@@ -35,9 +36,9 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   }
 
   onClickLogo() {
-    this.navigateTo('/home');
+    this.navigateTo(RouteUrls.route.home);
   }
   goToBag() {
-    this.navigateTo('/checkout');
+    this.navigateTo(RouteUrls.route.checkout);
   }
 }

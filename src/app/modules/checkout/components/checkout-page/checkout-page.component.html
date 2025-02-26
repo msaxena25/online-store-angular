@@ -21,7 +21,7 @@
       <!-- Items Section (List Style) -->
       <div class="items-list">
         <!-- Product 1 -->
-        <div class="product-item card mb-4" *ngFor="let item of cartItems">
+        <div class="product-item card mb-4" *ngFor="let item of cartItems; let i = index">
           <div class="row no-gutters">
             <div class="col-md-3">
               <img [src]="item.image" class="card-img" [alt]="item.title">
@@ -43,7 +43,7 @@
                   </div>
                   <div class="form-group">
                     <label for="quantity1">Quantity</label>
-                    <select id="quantity1" class="form-control mb-2">
+                    <select id="quantity1" class="form-control mb-2" [(ngModel)]="item.quantity" (change)="onQuantityChange($event, item)">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -54,15 +54,15 @@
                 <!-- Price with Discount -->
                 <div class="d-flex justify-content-between align-items-center">
                   <p class="price text-muted">
-                    <span class="old-price">₹{{item.originalPrice}}</span>
-                    <span class="new-price">₹{{item.discountedPrice}}</span>
+                    <span class="old-price">₹{{item.totalPrice}}</span>
+                    <span class="new-price">₹{{item.totalPriceAfterDiscount}}</span>
                   </p>
                 </div>
 
                 <!-- Returnable Text -->
                 <p class="text-success"><strong>7 days returnable</strong></p>
 
-                <button class="close" aria-label="Close">
+                <button class="close" aria-label="Close" (click)="onRemoveProductFromCart(item.id)">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>

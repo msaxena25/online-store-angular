@@ -4,6 +4,7 @@ import { IProductDetails } from '../../../../core/interfaces/product-details.int
 import { BaseComponent } from '../../../../core/components/base.components';
 import { CheckoutService } from '../../../../core/services/checkout.service';
 import { ICartProduct } from 'src/app/core/interfaces/cart-product.interface';
+import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
 
 @Component({
   selector: 'app-product-details-page',
@@ -36,6 +37,8 @@ export class ProductDetailsPageComponent extends BaseComponent {
       category: this.product?.category,
       originalPrice: this.product?.original_price,
       discountedPrice: this.product?.price_after_discount,
+      totalPrice: this.product?.original_price,
+      totalPriceAfterDiscount: this.product?.price_after_discount,
       quantity: 1,
       image: this.product?.images[0]
     } as ICartProduct;
@@ -44,7 +47,7 @@ export class ProductDetailsPageComponent extends BaseComponent {
   }
 
   goToBag() {
-    this.navigateTo('/checkout');
+    this.navigateTo(RouteUrls.route.checkout);
   }
 
 }

@@ -94,7 +94,7 @@ export class IndexDbService {
   }
 
   // Delete a product from IndexedDB
-  public deleteProduct(id: number): Promise<void> {
+  public deleteProduct(id: string): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!this.db) {
         reject('Database not initialized');
