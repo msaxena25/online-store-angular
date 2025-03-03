@@ -39,3 +39,37 @@
   // object-fit: cover; /* Ensures images keep their aspect ratio while filling the space */
   // width: 100%; /* Ensures the image fits the card width */
 }
+
+.floating-icon {
+  position: fixed;
+  right: 8px;
+  bottom: 8px;
+  background-color: black;
+  color: white;
+  border-radius: 100%;
+}
+
+.floating-icon .btn {
+  background-color: black;
+  border: none;
+  padding: 7px;
+  border-radius: 100%;
+}
+
+
+@media (max-width: 767px) {
+  .floating-icon {
+    display: block;
+  }
+  .filter-container-desktop {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .floating-icon {
+    display: none;
+  }
+  .filter-container-desktop {
+    display: block;
+  }
+}

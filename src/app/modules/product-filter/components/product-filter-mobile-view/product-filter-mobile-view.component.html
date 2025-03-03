@@ -1,0 +1,23 @@
+<!-- product-filter-overlay.component.html -->
+
+<div class="overlay" *ngIf="isVisible">
+  <div class="overlay-content">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3>Filter Products</h3>
+      <button class="btn btn-link p-10 btn-clear-all" (click)="resetFilters()">Clear All</button>
+    </div>
+
+    <!-- Filter Options -->
+    <div class="mb-4">
+      <app-product-filter-categories #productFilterCategories></app-product-filter-categories>
+    </div>
+
+  
+    <!-- Footer with Action Buttons -->
+    <div class="overlay-footer">
+      <button class="btn btn-secondary" (click)="closeOverlay()">Close</button>
+      <button class="btn btn-primary" (click)="applyFilters()">Apply</button>
+    </div>
+  </div>
+</div>

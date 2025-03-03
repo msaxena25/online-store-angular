@@ -1,6 +1,6 @@
 
 
-  <div *ngIf="filterOptions" class="filter-container">
+<div *ngIf="filterOptions" class="filter-container">
     <h3>Filter Products</h3>
   
     <!-- Categories Filter -->
@@ -66,9 +66,6 @@
       />
       <p>Price: ₹{{ selectedPriceRange }}</p>
     </div>
-   <!-- Apply Filters Button -->
-    <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
-    <!-- Reset Button -->
-    <button class="btn btn-secondary" (click)="resetFilters()">Reset Filters</button>
+ 
   </div>
   

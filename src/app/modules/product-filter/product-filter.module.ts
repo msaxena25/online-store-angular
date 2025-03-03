@@ -2,19 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductFilterRoutingModule } from './product-filter-routing.module';
-import { ProductFilterPageComponent } from './components/product-filter-page/product-filter-page.component';
 import { FormsModule } from '@angular/forms';
+import { ProductFilterMobileViewComponent } from './components/product-filter-mobile-view/product-filter-mobile-view.component';
+import { ProductFilterDesktopViewComponent } from './components/product-filter-desktop-view/product-filter-desktop-view.component';
+import { ProductFilterCategoriesComponent } from './components/product-filter-categories/product-filter-categories.component';
 
 
 @NgModule({
   declarations: [
-    ProductFilterPageComponent
+    ProductFilterMobileViewComponent,
+    ProductFilterDesktopViewComponent,
+    ProductFilterCategoriesComponent
   ],
   imports: [
     CommonModule,
     ProductFilterRoutingModule,
     FormsModule
   ],
-  exports: [ProductFilterPageComponent]
+  exports: [ProductFilterDesktopViewComponent, ProductFilterMobileViewComponent]
 })
 export class ProductFilterModule { }

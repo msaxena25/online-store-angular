@@ -1,0 +1,54 @@
+/* product-filter-overlay.component.css */
+
+/* Full-screen overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Use viewport width */
+  height: 100vh;
+  /* Use viewport height */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+}
+
+.overlay-content {
+  background: #fff;
+  padding: 30px;
+  height: 100%;
+  flex-grow: 1;
+  /* Allow content to take available space */
+  overflow-y: auto;
+  /* Enable scrolling if content exceeds viewport */
+}
+
+.btn-clear-all {
+  color: red;
+}
+
+
+.overlay-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #dee2e6;
+
+
+  button {
+    width: 50%;
+    border-radius: 0;
+    height: 50px;
+    padding: 0;
+  }
+
+}
+
+select,
+input[type="range"] {
+  width: 100%;
+}

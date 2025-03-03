@@ -1,14 +1,13 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IProductFilter } from '../../../../core/interfaces/product-filter.interface'; // Import model
-import { ProductFilterService } from '../../../../core/services/product-filter.service';
+import { Component } from '@angular/core';
+import { IProductFilter } from 'src/app/core/interfaces/product-filter.interface';
+import { ProductFilterService } from 'src/app/core/services/product-filter.service';
 
 @Component({
-  selector: 'app-product-filter-page',
-  templateUrl: './product-filter-page.component.html',
-  styleUrls: ['./product-filter-page.component.scss']
+  selector: 'app-product-filter-categories',
+  templateUrl: './product-filter-categories.component.html',
+  styleUrls: ['./product-filter-categories.component.scss']
 })
-export class ProductFilterPageComponent implements OnInit {
-  @Output() filterChange = new EventEmitter<any>();  // Event emitter to send filter data
+export class ProductFilterCategoriesComponent {
   filterOptions: IProductFilter | null = null;  // Store the filter options
   selectedCategories: number[] = [];
   selectedColors: number[] = [];

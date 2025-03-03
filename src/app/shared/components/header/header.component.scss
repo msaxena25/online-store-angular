@@ -39,6 +39,7 @@
 .cart-icon {
   position: relative;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .badge {
@@ -118,6 +119,10 @@
 .mobile-view {
   // Default mobile styles (for screens <= 768px)
   display: contents;
+
+  .search-input-mobile {
+    border-color: gray;
+  }
 }
 
 .desktop-viw-nav {

@@ -20,8 +20,8 @@
   <!-- Filter Component Column (First Column) -->
   <div class="col-lg-3 col-md-4 col-sm-12 py-3">
     <!-- Add your filter component HTML here -->
-    <div class="filter-container p-3 border bg-light">
-      <app-product-filter-page></app-product-filter-page>
+    <div class="filter-container-desktop p-3 border bg-light">
+      <app-product-filter-desktop-view></app-product-filter-desktop-view>
     </div>
   </div>
 
@@ -43,3 +43,10 @@
     </div>
   </div>
 </div>
+<!-- Floating Filter Icon -->
+<div class="floating-icon">
+  <button class="btn btn-floating" (click)="onFloatingIconClick()">
+    <i class="bi bi-filter fs-1 text-warning" aria-hidden="true"></i>
+  </button>
+</div>
+<app-product-filter-mobile-view #productFilterMobileViewOverlay></app-product-filter-mobile-view>
