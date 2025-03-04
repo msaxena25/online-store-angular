@@ -16,6 +16,7 @@ import { ProductListModule } from '../product-list/product-list.module';
     HomeRoutingModule,
     SharedModule,
     ProductListModule
-]
+],
+exports: [HomePageComponent]
 })
 export class HomeModule { }

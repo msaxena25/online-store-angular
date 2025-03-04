@@ -47,7 +47,7 @@ export class CheckoutPageComponent extends BaseComponent {
   }
 
   addProduct() {
-    this.navigateTo(RouteUrls.route.home);
+    this.navigateTo(RouteUrls.route.productList);
   }
 
   onRemoveProductFromCart(productId: string) {

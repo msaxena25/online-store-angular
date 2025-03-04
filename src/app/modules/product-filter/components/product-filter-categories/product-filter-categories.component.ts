@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IProductFilter } from 'src/app/core/interfaces/product-filter.interface';
+import { BaseComponent } from 'src/app/core/components/base.components';
+import { IFilterState, IProductFilter } from 'src/app/core/interfaces/product-filter.interface';
 import { ProductFilterService } from 'src/app/core/services/product-filter.service';
 
 @Component({
@@ -7,15 +8,16 @@ import { ProductFilterService } from 'src/app/core/services/product-filter.servi
   templateUrl: './product-filter-categories.component.html',
   styleUrls: ['./product-filter-categories.component.scss']
 })
-export class ProductFilterCategoriesComponent {
+export class ProductFilterCategoriesComponent extends BaseComponent {
   filterOptions: IProductFilter | null = null;  // Store the filter options
+  filterState: IFilterState = {};
   selectedCategories: number[] = [];
   selectedColors: number[] = [];
   selectedDiscounts: number[] = [];
   selectedPriceRange: number = 100;
   productName: string = '';
 
-  constructor(private productFilterService: ProductFilterService) { }
+  constructor(private productFilterService: ProductFilterService) { super() }
 
   ngOnInit(): void {
     this.loadFilterOptions();
@@ -25,13 +27,28 @@ export class ProductFilterCategoriesComponent {
     this.productFilterService.getProductFilterOptions().subscribe({
       next: (data) => {
         this.filterOptions = data;  // Handle successful response
+        this.loadFilterState();
       },
       error: (error) => {
         console.error('Error loading filter options:', error);  // Handle error
       }
     }
-
     );
+  
+  }
+
+  loadFilterState() {
+    // Listen to filter changes from the ProductFilterComponent
+    const sub$ = this.productFilterService.filterChanged$.subscribe(filterData => {
+      this.filterState = filterData;
+      this.selectedCategories = this.filterState.categories || [];
+      this.selectedColors = this.filterState.colors || [];
+      this.selectedDiscounts = this.filterState.discounts || [];
+      this.productName = this.filterState.productName || '';
+      
+    });
+
+    this.subscriptions$.add(sub$);
   }
 
   onCategoryChange(categoryId: number): void {

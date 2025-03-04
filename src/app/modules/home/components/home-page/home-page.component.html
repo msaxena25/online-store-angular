@@ -1,4 +1,21 @@
-
-
-
-<app-product-list-page></app-product-list-page>
+<div class="container-fluid">
+    <!-- Header Row -->
+    <div *ngIf="headerConfig.showHeader" class="row">
+      <div class="col-12 text-center">
+        <app-header [headerConfig]="headerConfig"></app-header>
+      </div>
+    </div>
+  
+    <!-- Main Content Row -->
+    <div class="row">
+      <router-outlet></router-outlet>
+      
+    </div>
+  
+    <!-- Footer Row -->
+    <div class="row bg-dark text-white py-3 mt-auto">
+      <div class="col-12 text-center">
+       <app-footer></app-footer>
+      </div>
+    </div>
+  </div>

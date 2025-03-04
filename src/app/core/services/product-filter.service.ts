@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { IProductFilter } from '../interfaces/product-filter.interface';
+import { BehaviorSubject } from 'rxjs';
+import { IFilterState, IProductFilter } from '../interfaces/product-filter.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { IProductFilter } from '../interfaces/product-filter.interface';
 export class ProductFilterService {
 
   private filterOptionsUrl = 'assets/data/product-filters.json';
-  private filterSubject = new Subject<any>();  // Subject to emit filter changes
+  private filterSubject = new BehaviorSubject<IFilterState>({});  // Subject to emit filter changes
   filterChanged$ = this.filterSubject.asObservable();  // Observable to listen to filter changes
 
   constructor(private http: HttpClient) { }

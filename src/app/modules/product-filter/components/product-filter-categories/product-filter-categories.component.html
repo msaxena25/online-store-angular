@@ -12,6 +12,7 @@
             type="checkbox" 
             [value]="category.id" 
             (change)="onCategoryChange(category.id)"
+            [checked]="filterState.categories?.includes(category.id)" 
           />
           {{ category.name }}
         </label>
@@ -33,6 +34,7 @@
             type="checkbox" 
             [value]="color.id" 
             (change)="onColorChange(color.id)"
+            [checked]="filterState.colors?.includes(color.id)" 
           />
           {{ color.name }}
         </label>
@@ -48,6 +50,7 @@
             type="checkbox" 
             [value]="discount.id" 
             (change)="onDiscountChange(discount.id)"
+            [checked]="filterState.discounts?.includes(discount.id)" 
           />
           {{ discount.name }}
         </label>

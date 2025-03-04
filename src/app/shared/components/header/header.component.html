@@ -8,13 +8,13 @@
           <i class="bi" [ngClass]="{'bi-list': !isSidebarOpen, 'bi-x-lg': isSidebarOpen}"></i>
         </button>
       </div>
-      <div class="col-8">
+      <div *ngIf="headerConfig.showLogo" class="col-8">
         <!-- Company Name -->
         <a class="navbar-brand text-yellow" href="#">Y Company</a>
 
       </div>
       <!-- User Icon and Checkout Icon on the Right -->
-      <div class="col-2">
+      <div *ngIf="headerConfig.showUser" class="col-2">
 
         <!-- Checkout Icon -->
         <a href="#" class="text-white">
@@ -26,8 +26,9 @@
     <!-- Navbar Links and Search -->
     <div class="collapse navbar-collapse desktop-viw-nav" id="navbarNav">
       <!-- Company Name -->
-      <a class="navbar-brand text-yellow title-desktop" href="javascript:void(0)" (click)="onClickLogo()">Y Company</a>
-      <ul class="navbar-nav ul-categories me-auto mb-lg-0">
+      <a *ngIf="headerConfig.showLogo" class="navbar-brand text-yellow title-desktop" href="javascript:void(0)"
+        (click)="onClickLogo()">Y Company</a>
+      <ul *ngIf="headerConfig.showCategories" class="navbar-nav ul-categories me-auto mb-lg-0">
         <!-- Categories (Men, Women, Kids) -->
         <li class="nav-item">
           <a class="nav-link text-white" href="#">Men</a>
@@ -41,7 +42,7 @@
       </ul>
 
       <!-- Search Bar with Search Icon -->
-      <form class="d-flex me-3 search-box">
+      <form *ngIf="headerConfig.showSearchbar" class="d-flex me-3 search-box">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-light" type="submit">
           <i class="bi bi-search"></i>
@@ -51,7 +52,7 @@
       <!-- User Icon and Checkout Icon on the Right -->
       <div class="d-flex">
         <!-- User Icon -->
-        <a href="#" class="text-white me-3">
+        <a *ngIf="headerConfig.showUser" href="#" class="text-white me-3">
           <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
         </a>
 
@@ -59,7 +60,7 @@
         <!-- <a href="#" class="text-white">
           <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
         </a> -->
-        <div class="cart-icon text-white" (click)="goToBag()">
+        <div *ngIf="headerConfig.showBag" class="cart-icon text-white" (click)="goToBag()">
           <i class="bi bi-bag"></i>
           <span class="badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
         </div>
@@ -68,7 +69,7 @@
   </div>
 </nav>
 
-<div class="mobile-view">
+<div *ngIf="headerConfig.showSearchbar" class="mobile-view">
   <!-- Search Bar with Search Icon -->
   <form class="d-flex me-3 search-box">
     <input class="form-control me-2 search-input-mobile" type="search" placeholder="Search" aria-label="Search">
@@ -79,7 +80,7 @@
 </div>
 
 <!-- Sidebar -->
-<div #sidebar class="sidebar" [class.open]="isSidebarOpen">
+<div #sidebar class="sidebar" [class.open]="isSidebarOpen" *ngIf="headerConfig.showHeader">
 
 
   <!-- User Profile -->

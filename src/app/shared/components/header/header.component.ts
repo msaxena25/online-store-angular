@@ -1,5 +1,6 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { BaseComponent } from 'src/app/core/components/base.components';
+import { IHeaderConfig } from 'src/app/core/constants/header.config';
 import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
 import { CheckoutService } from 'src/app/core/services/checkout.service';
 
@@ -14,10 +15,12 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   isSidebarOpen = false;
   @ViewChild('sidebar') sidebar!: ElementRef;
   @ViewChild('toggleBtn') toggleBtn!: ElementRef;
+  @Input() headerConfig: IHeaderConfig;
 
   constructor(private checkoutService: CheckoutService) { super() }
 
   ngOnInit(): void {
+    console.log(this.headerConfig)
     // Subscribe to cart count to update badge in real-time
     this.checkoutService.getCartCount().subscribe(count => {
       this.cartCount = count;
@@ -36,7 +39,7 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   }
 
   onClickLogo() {
-    this.navigateTo(RouteUrls.route.home);
+    this.navigateTo(RouteUrls.route.productList);
   }
   goToBag() {
     this.navigateTo(RouteUrls.route.checkout);
