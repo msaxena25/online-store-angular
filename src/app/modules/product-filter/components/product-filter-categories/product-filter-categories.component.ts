@@ -14,7 +14,7 @@ export class ProductFilterCategoriesComponent extends BaseComponent {
   selectedCategories: number[] = [];
   selectedColors: number[] = [];
   selectedDiscounts: number[] = [];
-  selectedPriceRange: number = 100;
+  selectedPriceRange: number = null;
   productName: string = '';
 
   constructor(private productFilterService: ProductFilterService) { super() }
@@ -86,13 +86,13 @@ export class ProductFilterCategoriesComponent extends BaseComponent {
     this.selectedCategories = [];
     this.selectedColors = [];
     this.selectedDiscounts = [];
-    this.selectedPriceRange = 100;
+    this.selectedPriceRange = null;
     // Emit reset filters event to parent component
     this.productFilterService.updateFilter({
       categories: [],
       colors: [],
       discounts: [],
-      selectedPrice: 100
+      selectedPrice: null
     });
   }
 

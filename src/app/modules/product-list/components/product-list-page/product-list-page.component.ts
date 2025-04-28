@@ -5,6 +5,7 @@ import { IProduct } from '../../../../core/interfaces/product.interface';
 import { BaseComponent } from '../../../../core/components/base.components';
 import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
 import { ProductFilterMobileViewComponent } from 'src/app/modules/product-filter/components/product-filter-mobile-view/product-filter-mobile-view.component';
+import { IFilterState } from 'src/app/core/interfaces/product-filter.interface';
 @Component({
   selector: 'app-product-list-page',
   templateUrl: './product-list-page.component.html',
@@ -60,15 +61,16 @@ export class ProductListPageComponent extends BaseComponent {
   }
 
   // Method to apply filters on the products
-  applyFilters(filterData: any): void {
+  applyFilters(filterData: IFilterState): void {
     this.errorMessage = null;
     this.filteredProducts = this.products.filter(product => {
-      const isCategoryMatch = filterData.categories.length === 0 || filterData.categories.includes(product.categoryId);
-      const isColorMatch = filterData.colors.length === 0 || filterData.colors.includes(product.colorId);
-      const isDiscountMatch = filterData.discounts.length === 0 || product.discount >= Math.min(...filterData.discounts);
-      const isPriceInRange = product.price >= filterData.selectedPrice;
+      const isCategoryMatch = filterData.categories?.length === 0 || filterData.categories?.includes(product.categoryId);
+      const isColorMatch = filterData.colors?.length === 0 || filterData.colors?.includes(product.colorId);
+      const isDiscountMatch = filterData.discounts?.length === 0 || product.discount >= Math.min(...filterData.discounts || []);
+      const isPriceInRange = product.price <= (filterData.selectedPrice || 0);
+      const isProductName = product.title.toLowerCase().includes(filterData.productName?.toLowerCase() || '')
 
-      return isCategoryMatch && isColorMatch && isDiscountMatch && isPriceInRange;
+      return isCategoryMatch && isColorMatch && isDiscountMatch && isPriceInRange && isProductName;
     });
 
     if (this.filteredProducts.length === 0) {
