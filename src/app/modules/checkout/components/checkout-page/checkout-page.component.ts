@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { BaseComponent } from 'src/app/core/components/base.components';
-import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
-import { ICartProduct } from 'src/app/core/interfaces/cart-product.interface';
-import { CheckoutService } from 'src/app/core/services/checkout.service';
+import { BaseComponent } from '../../../../core/components/base.components';
+import { RouteUrls } from '../../../../core/constants/route.urls.constants';
+import { ICartProduct } from '../../../../core/interfaces/cart-product.interface';
+import { CheckoutService } from '../../../../core/services/checkout.service';
 
 @Component({
   selector: 'app-checkout-page',
@@ -60,5 +60,10 @@ export class CheckoutPageComponent extends BaseComponent {
     const selectedQuantity = event.target.value;
     product.quantity = selectedQuantity;
     this.checkoutService.updateProduct(product)
+  }
+
+  onPlaceOrdder() {
+    this.checkoutService.clearRecordsFromCarts();
+    this.navigateTo(RouteUrls.route.acknowledge);
   }
 }

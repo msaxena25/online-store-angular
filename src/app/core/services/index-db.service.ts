@@ -109,4 +109,21 @@ export class IndexDbService {
       request.onerror = (event) => reject(event);
     });
   }
+
+  // Clear all records from IndexedDB
+  public clearDB(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (!this.db) {
+        reject('Database not initialized');
+        return;
+      }
+
+      const transaction = this.db.transaction(STORE_NAME, 'readwrite');
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.clear();
+
+      request.onsuccess = () => resolve();
+      request.onerror = (event) => reject(event);
+    });
+  }
 }

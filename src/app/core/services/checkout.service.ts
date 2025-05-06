@@ -127,6 +127,14 @@ export class CheckoutService {
       });
   }
 
+  public clearRecordsFromCarts() {
+    this.indexDbService.clearDB().then(() => {
+      this.loadCartFromIndexedDB(); // Reload cart data after deletion
+    }).catch((error: Error) => {
+      console.error('Error removing products from IndexedDB', error);
+    });
+  }
+
 }
 
 
