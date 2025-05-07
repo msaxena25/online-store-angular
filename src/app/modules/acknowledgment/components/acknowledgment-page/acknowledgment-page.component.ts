@@ -19,6 +19,6 @@ export class AcknowledgmentPageComponent extends BaseComponent {
   }
 
   goHome(): void {
-    this.navigateTo(RouteUrls.route.productList);
+    this.navigateTo(RouteUrls.route.home);
   }
 }

@@ -39,7 +39,7 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   }
 
   onClickLogo() {
-    this.navigateTo(RouteUrls.route.productList);
+    this.navigateTo(RouteUrls.route.home);
   }
   goToBag() {
     this.navigateTo(RouteUrls.route.checkout);
