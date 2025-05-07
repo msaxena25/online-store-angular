@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs';
-import { BaseComponent } from 'src/app/core/components/base.components';
-import { HEADER_CONFIG } from 'src/app/core/constants/header.config';
-import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
+
+import { BaseComponent } from '../../../../core/components/base.components';
+import { RouteUrls } from '../../../../core/constants/route.urls.constants';
+
 
 @Component({
   selector: 'app-home-page',
@@ -11,18 +10,33 @@ import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent extends BaseComponent {
-  headerConfig = HEADER_CONFIG['*'];
-  showHeader = true;
-  ngOnInit() {
-    const sub$ = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      if (event.url === RouteUrls.route.checkout) {
-        this.headerConfig = HEADER_CONFIG[event.url];
-      } else {
-        this.headerConfig = HEADER_CONFIG['*'];
-      }
-    });
-    this.subscriptions$.add(sub$);
+
+  imageBasePath: string = 'assets/images/';
+
+  carouselImages: string[] = [
+    this.imageBasePath + 'carousel1.png',
+    this.imageBasePath + 'carousel2.png',
+    this.imageBasePath + 'carousel3.png'
+  ];
+
+  shopByCategoryImage: string = this.imageBasePath + 'shopbycat.jpg';
+
+  shoppingCategories: { image: string; }[][] = [
+    [
+      { image: this.imageBasePath + 'sale4.png' },
+      { image: this.imageBasePath + 'sale2.png' },
+      { image: this.imageBasePath + 'sale3.png' }
+    ],
+    [
+      { image: this.imageBasePath + 'sale4.png' },
+      { image: this.imageBasePath + 'sale2.png' },
+      { image: this.imageBasePath + 'sale3.png' }
+    ]
+  ];
+
+  flatDiscountImage: string = this.imageBasePath + 'flat-discount.jpg';
+
+  navigateToProduct() {
+    this.navigateTo(RouteUrls.route.productList);
   }
 }

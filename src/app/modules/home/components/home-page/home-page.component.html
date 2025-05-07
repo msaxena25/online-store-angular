@@ -1,21 +1,42 @@
-<div class="container-fluid parent-div">
-    <!-- Header Row -->
-    <div *ngIf="headerConfig.showHeader" class="row">
-      <div class="col-12 text-center">
-        <app-header [headerConfig]="headerConfig"></app-header>
-      </div>
+  <!-- Flat Discount Card -->
+  <div class="card mb-4 text-white" (click)="navigateToProduct()">
+    <div class="row g-0">
+      <img [src]="flatDiscountImage" class="img-fluid rounded-start">
+    </div>
+  </div>
+  
+
+<!-- Carousel -->
+<div id="carouselExampleIndicators" class="carousel slide mb-4 bg-dark" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let image of carouselImages; let i = index"
+              [class.active]="i === 0"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              [attr.data-bs-slide-to]="i">
+      </button>
     </div>
   
-    <!-- Main Content Row -->
-    <div class="row content-div">
-      <router-outlet></router-outlet>
-      
-    </div>
-  
-    <!-- Footer Row -->
-    <div class="row bg-dark text-white py-3 mt-auto">
-      <div class="col-12 text-center">
-       <app-footer></app-footer>
+    <div class="carousel-inner">
+      <div *ngFor="let image of carouselImages; let i = index"
+           class="carousel-item"
+           [class.active]="i === 0">
+        <img [src]="image" class="d-block w-100" alt="Carousel image">
       </div>
     </div>
   </div>
+  
+  <!-- Shop By Category Card -->
+  <div class="card mb-4 text-white">
+    <div class="row g-0">
+      <img [src]="shopByCategoryImage" class="img-fluid rounded-start">
+    </div>
+  </div>
+  
+  <!-- Shopping Categories -->
+  <div class="row text-center mb-4" *ngFor="let categoryRow of shoppingCategories">
+    <div class="col-md-4" *ngFor="let category of categoryRow" (click)="navigateToProduct()">
+      <img [src]="category.image" class="card-img-top">
+    </div>
+  </div>
+  
