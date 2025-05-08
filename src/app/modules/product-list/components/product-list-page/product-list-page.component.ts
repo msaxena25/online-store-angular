@@ -40,10 +40,7 @@ export class ProductListPageComponent extends BaseComponent {
         if (products.length === 0) {
           this.errorMessage = 'No products available.';
         } else {
-          this.errorMessage = null;
-          this.products = products;
-          this.productService.setProducts(products);
-          this.filteredProducts = products; // Set initial products list
+          this.laodProductsSuccess(products);
         }
       },
       error: (err) => {
@@ -55,14 +52,30 @@ export class ProductListPageComponent extends BaseComponent {
     });
   }
 
+  private laodProductsSuccess(products: IProduct[]) {
+    this.errorMessage = null;
+    this.products = products;
+    this.productService.setProducts(products);
+    const searchText = this.getQueryParam('search');
+    if (searchText) {
+      this.filterService.updateFilter({ productName: searchText });
+    } else {
+      this.filteredProducts = products; // Set initial products list
+    }
+
+  }
+
   listenFilterChange() {
     // Listen to filter changes from the ProductFilterComponent
     this.errorMessage = '';
     const sub$ = this.filterService.filterChanged$.subscribe(filterData => {
-      this.filteredProducts = this.filterService.applyFilters(filterData, this.products);
-      if (this.filteredProducts.length === 0) {
-        this.errorMessage = 'No products available.';
+      if (this.products.length) {
+        this.filteredProducts = this.filterService.applyFilters(filterData, this.products);
+        if (this.filteredProducts.length === 0) {
+          this.errorMessage = 'No products available.';
+        }
       }
+
     });
     this.subscriptions$.add(sub$);
   }
