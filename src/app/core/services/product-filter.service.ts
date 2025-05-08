@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IFilterState, IProductFilter } from '../interfaces/product-filter.interface';
+import { IProduct } from '../interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,26 @@ export class ProductFilterService {
       selectedPrice: 100
     });
   }
+  applyFilters(filterData: IFilterState, products: IProduct[]): IProduct[] {
+    const filteredProducts = products.filter(product => {
+      const isCategoryMatch =
+        !filterData.categories || filterData.categories.length === 0 || filterData.categories.includes(product.categoryId);
+
+      const isColorMatch =
+        !filterData.colors || filterData.colors.length === 0 || filterData.colors.includes(product.colorId);
+
+      const isDiscountMatch =
+        !filterData.discounts || filterData.discounts.length === 0 || product.discount >= Math.min(...filterData.discounts || []);
+
+      const isPriceInRange = product.price <= (filterData.selectedPrice || Infinity); // If no price selected, allow all
+
+      const isProductName =
+        product.title.toLowerCase().includes((filterData.productName || '').toLowerCase());
+
+      return isCategoryMatch && isColorMatch && isDiscountMatch && isPriceInRange && isProductName;
+    });
+
+    return filteredProducts;
+  }
+
 }

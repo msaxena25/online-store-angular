@@ -3,9 +3,8 @@ import { ProductService } from '../../../../core/services/product.service';
 import { ProductFilterService } from '../../../../core/services/product-filter.service';
 import { IProduct } from '../../../../core/interfaces/product.interface';
 import { BaseComponent } from '../../../../core/components/base.components';
-import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
-import { ProductFilterMobileViewComponent } from 'src/app/modules/product-filter/components/product-filter-mobile-view/product-filter-mobile-view.component';
-import { IFilterState } from 'src/app/core/interfaces/product-filter.interface';
+import { RouteUrls } from '../../../../core/constants/route.urls.constants';
+import { ProductFilterMobileViewComponent } from '../../../../modules/product-filter/components/product-filter-mobile-view/product-filter-mobile-view.component';
 @Component({
   selector: 'app-product-list-page',
   templateUrl: './product-list-page.component.html',
@@ -27,6 +26,12 @@ export class ProductListPageComponent extends BaseComponent {
   constructor(private productService: ProductService, private filterService: ProductFilterService) { super() }
 
   ngOnInit(): void {
+    this.loadProductsFromApi();
+    this.listenFilterChange();
+
+  }
+
+  loadProductsFromApi() {
     // Subscribe to the observable and handle success/error in the component
     this.products$.subscribe({
       next: (products) => {
@@ -48,9 +53,16 @@ export class ProductListPageComponent extends BaseComponent {
         console.error('Error fetching products', err);
       }
     });
+  }
+
+  listenFilterChange() {
     // Listen to filter changes from the ProductFilterComponent
+    this.errorMessage = '';
     const sub$ = this.filterService.filterChanged$.subscribe(filterData => {
-      this.applyFilters(filterData);
+      this.filteredProducts = this.filterService.applyFilters(filterData, this.products);
+      if (this.filteredProducts.length === 0) {
+        this.errorMessage = 'No products available.';
+      }
     });
     this.subscriptions$.add(sub$);
   }
@@ -60,23 +72,7 @@ export class ProductListPageComponent extends BaseComponent {
     // Navigate to the product detail page with the product ID
   }
 
-  // Method to apply filters on the products
-  applyFilters(filterData: IFilterState): void {
-    this.errorMessage = null;
-    this.filteredProducts = this.products.filter(product => {
-      const isCategoryMatch = filterData.categories?.length === 0 || filterData.categories?.includes(product.categoryId);
-      const isColorMatch = filterData.colors?.length === 0 || filterData.colors?.includes(product.colorId);
-      const isDiscountMatch = filterData.discounts?.length === 0 || product.discount >= Math.min(...filterData.discounts || []);
-      const isPriceInRange = product.price <= (filterData.selectedPrice || 0);
-      const isProductName = product.title.toLowerCase().includes(filterData.productName?.toLowerCase() || '')
 
-      return isCategoryMatch && isColorMatch && isDiscountMatch && isPriceInRange && isProductName;
-    });
-
-    if (this.filteredProducts.length === 0) {
-      this.errorMessage = 'No products available.';
-    }
-  }
   // Reset filters and show all products
   resetFilters(): void {
     // Notify filter component to reset

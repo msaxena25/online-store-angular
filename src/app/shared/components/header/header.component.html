@@ -43,8 +43,8 @@
 
       <!-- Search Bar with Search Icon -->
       <form *ngIf="headerConfig.showSearchbar" class="d-flex me-3 search-box">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">
+        <input class="form-control me-2" type="text"  name="search" placeholder="Search" aria-label="Search" [(ngModel)]="productSearchText">
+        <button class="btn btn-outline-light" (click)="onProductSearch()">
           <i class="bi bi-search"></i>
         </button>
       </form>
@@ -72,8 +72,8 @@
 <div *ngIf="headerConfig.showSearchbar" class="mobile-view">
   <!-- Search Bar with Search Icon -->
   <form class="d-flex me-3 search-box">
-    <input class="form-control me-2 search-input-mobile" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-gray" type="submit">
+    <input class="form-control me-2 search-input-mobile" type="text"  name="search" placeholder="Search" aria-label="Search" [(ngModel)]="productSearchText">
+    <button class="btn btn-outline-gray" type="submit" (click)="onProductSearch()">
       <i class="bi bi-search"></i>
     </button>
   </form>
