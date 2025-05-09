@@ -67,8 +67,8 @@ export class ProductListPageComponent extends BaseComponent {
 
   listenFilterChange() {
     // Listen to filter changes from the ProductFilterComponent
-    this.errorMessage = '';
     const sub$ = this.filterService.filterChanged$.subscribe(filterData => {
+      this.errorMessage = '';
       if (this.products.length) {
         this.filteredProducts = this.filterService.applyFilters(filterData, this.products);
         if (this.filteredProducts.length === 0) {
