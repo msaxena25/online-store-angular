@@ -26,7 +26,11 @@ export abstract class BaseComponent implements OnDestroy {
 
   // Navigate to a new route
   navigateTo(path: string, params?: any) {
-    this.router.navigate([path], { queryParams: params });
+    if (params) {
+      this.router.navigate([path], { queryParams: params });
+    } else {
+      this.router.navigate([path]);
+    }
   }
 
   // Navigate with route parameters

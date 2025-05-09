@@ -3,8 +3,8 @@ import { ProductService } from '../../../../core/services/product.service';
 import { IProductDetails } from '../../../../core/interfaces/product-details.interface';
 import { BaseComponent } from '../../../../core/components/base.components';
 import { CheckoutService } from '../../../../core/services/checkout.service';
-import { ICartProduct } from 'src/app/core/interfaces/cart-product.interface';
-import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
+import { ICartProduct } from '../../../../core/interfaces/cart-product.interface';
+import { RouteUrls } from '../../../../core/constants/route.urls.constants';
 
 @Component({
   selector: 'app-product-details-page',

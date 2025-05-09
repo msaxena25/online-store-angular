@@ -14,8 +14,6 @@ export class ProductListPageComponent extends BaseComponent {
   @ViewChild('productFilterMobileViewOverlay') productFilterMobileViewOverlay: ProductFilterMobileViewComponent;
   products: IProduct[] = [];  // List of products
   filteredProducts: IProduct[] = [];  // Filtered products based on the applied filters
-  // Observable for products
-  products$ = this.productService.loadProducts();
 
   // Variable to track loading status
   loading = true;
@@ -33,7 +31,7 @@ export class ProductListPageComponent extends BaseComponent {
 
   loadProductsFromApi() {
     // Subscribe to the observable and handle success/error in the component
-    this.products$.subscribe({
+    this.productService.loadProducts().subscribe({
       next: (products) => {
         // If products are fetched, stop loading and clear any error message
         this.loading = false;
@@ -47,7 +45,6 @@ export class ProductListPageComponent extends BaseComponent {
         // In case of an error, show the error message
         this.loading = false;
         this.errorMessage = 'Something went wrong. Please try again later.';
-        console.error('Error fetching products', err);
       }
     });
   }
@@ -82,7 +79,6 @@ export class ProductListPageComponent extends BaseComponent {
 
   viewProductDetail(id: number): void {
     this.navigateTo(`${RouteUrls.route.product}/${id}`);
-    // Navigate to the product detail page with the product ID
   }
 
 
