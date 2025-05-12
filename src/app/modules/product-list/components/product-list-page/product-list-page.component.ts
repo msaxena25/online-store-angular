@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { ProductService } from '../../../../core/services/product.service';
-import { ProductFilterService } from '../../../../core/services/product-filter.service';
-import { IProduct } from '../../../../core/interfaces/product.interface';
-import { BaseComponent } from '../../../../core/components/base.components';
-import { RouteUrls } from '../../../../core/constants/route.urls.constants';
+import { ProductService } from '@app-core/services/product.service';
+import { ProductFilterService } from '@app-core/services/product-filter.service';
+import { IProduct } from '@app-core/interfaces/product.interface';
+import { BaseComponent } from '@app-core/components/base.components';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
 import { ProductFilterMobileViewComponent } from '../../../../modules/product-filter/components/product-filter-mobile-view/product-filter-mobile-view.component';
 @Component({
   selector: 'app-product-list-page',

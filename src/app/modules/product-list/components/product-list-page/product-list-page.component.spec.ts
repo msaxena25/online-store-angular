@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductListPageComponent } from './product-list-page.component';
-import { productListComponentProviders } from '../../../../../app/test-utils/providers.mock';
-import { configureTestBed } from '../../../../../app/test-utils/testbed-setup';
-import { productFilterServiceSpy, productServiceSpy } from 'src/app/test-utils/service.mock';
-import { mockProducts } from 'src/app/test-utils/data.mock';
+import { productListComponentProviders } from '@app-test-utils/providers.mock';
+import { configureTestBed } from '@app-test-utils/testbed-setup';
+import { productFilterServiceSpy, productServiceSpy } from '@app-test-utils/service.mock';
+import { mockProducts } from '@app-test-utils/data.mock';
 import { of, Subject, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 

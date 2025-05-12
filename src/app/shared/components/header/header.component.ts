@@ -1,9 +1,9 @@
 import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { BaseComponent } from '../../../core/components/base.components';
-import { IHeaderConfig } from '../../../core/constants/header.config';
-import { RouteUrls } from '../../../core/constants/route.urls.constants';
-import { CheckoutService } from '../../../core/services/checkout.service';
-import { ProductFilterService } from '../../../core/services/product-filter.service';
+import { BaseComponent } from '@app-core/components/base.components';
+import { IHeaderConfig } from '@app-core/constants/header.config';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
+import { CheckoutService } from '@app-core/services/checkout.service';
+import { ProductFilterService } from '@app-core/services/product-filter.service';
 
 @Component({
   selector: 'app-header',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RouteUrls } from './core/constants/route.urls.constants';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
 
 const routes: Routes = [
   { path: '', redirectTo: RouteUrls.route.home, pathMatch: 'full' },

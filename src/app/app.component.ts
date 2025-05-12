@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HEADER_CONFIG } from 'src/app/core/constants/header.config';
-import { RouteUrls } from 'src/app/core/constants/route.urls.constants';
+import { HEADER_CONFIG } from '@app-core/constants/header.config';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
 import { NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
-import { BaseComponent } from './core/components/base.components';
+import { BaseComponent } from '@app-core/components/base.components';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

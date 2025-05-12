@@ -1,7 +1,7 @@
-import { ProductService } from '../../app/core/services/product.service';
-import { ProductFilterService } from '../../app/core/services/product-filter.service';
+import { ProductService } from '@app-core/services/product.service';
+import { ProductFilterService } from '@app-core/services/product-filter.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { activatedRouteSpy, checkoutServiceSpy, productFilterServiceSpy, productServiceSpy, routerSpy } from '../../app/test-utils/service.mock';
+import { activatedRouteSpy, checkoutServiceSpy, productFilterServiceSpy, productServiceSpy, routerSpy } from '@app-test-utils/service.mock';
 import { CheckoutService } from '../core/services/checkout.service';
 
 const mocks = {

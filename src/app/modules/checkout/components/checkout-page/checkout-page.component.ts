@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { BaseComponent } from '../../../../core/components/base.components';
-import { RouteUrls } from '../../../../core/constants/route.urls.constants';
-import { ICartProduct } from '../../../../core/interfaces/cart-product.interface';
-import { CheckoutService } from '../../../../core/services/checkout.service';
+import { BaseComponent } from '@app-core/components/base.components';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
+import { ICartProduct } from '@app-core/interfaces/cart-product.interface';
+import { CheckoutService } from '@app-core/services/checkout.service';
 
 @Component({
   selector: 'app-checkout-page',

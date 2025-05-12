@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { BaseComponent } from '../../../../core/components/base.components';
-import { IFilterState, IProductFilter } from '../../../../core/interfaces/product-filter.interface';
-import { ProductFilterService } from '../../../../core/services/product-filter.service';
+import { BaseComponent } from '@app-core/components/base.components';
+import { IFilterState, IProductFilter } from '@app-core/interfaces/product-filter.interface';
+import { ProductFilterService } from '@app-core/services/product-filter.service';
 
 @Component({
   selector: 'app-product-filter-categories',

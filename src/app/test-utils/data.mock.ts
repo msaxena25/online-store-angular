@@ -1,4 +1,4 @@
-import { IProduct } from '../../app/core/interfaces/product.interface';
+import { IProduct } from '@app-core/interfaces/product.interface';
 import productDetailsData from '../../assets/data/product-detail.json';
 
 export const mockProducts = [

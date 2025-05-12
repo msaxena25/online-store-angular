@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BaseComponent } from '../../../../core/components/base.components';
-import { RouteUrls } from '../../../../core/constants/route.urls.constants';
+import { BaseComponent } from '@app-core/components/base.components';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
 
 @Component({
   selector: 'app-acknowledgment-page',

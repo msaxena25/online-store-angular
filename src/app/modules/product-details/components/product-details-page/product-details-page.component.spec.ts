@@ -1,12 +1,12 @@
 import { ComponentFixture } from '@angular/core/testing';
 
 import { ProductDetailsPageComponent } from './product-details-page.component';
-import { configureTestBed } from './../../../../test-utils/testbed-setup';
-import { productDetailsPageComponentProviders } from './../../../../test-utils/providers.mock';
-import { checkoutServiceSpy, productServiceSpy, routerSpy } from './../../../../test-utils/service.mock';
+import { configureTestBed } from '@app-test-utils/testbed-setup';
+import { productDetailsPageComponentProviders } from '@app-test-utils/providers.mock';
+import { checkoutServiceSpy, productServiceSpy, routerSpy } from '@app-test-utils/service.mock';
 import { of } from 'rxjs';
-import { mockProductDetails } from './../../../../test-utils/data.mock';
-import { RouteUrls } from '../../../../core/constants/route.urls.constants';
+import { mockProductDetails } from '@app-test-utils/data.mock';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
 
 describe('ProductDetailsPageComponent', () => {
   let component: ProductDetailsPageComponent;

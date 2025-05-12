@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../../../../core/services/product.service';
-import { IProductDetails } from '../../../../core/interfaces/product-details.interface';
-import { BaseComponent } from '../../../../core/components/base.components';
-import { CheckoutService } from '../../../../core/services/checkout.service';
-import { ICartProduct } from '../../../../core/interfaces/cart-product.interface';
-import { RouteUrls } from '../../../../core/constants/route.urls.constants';
+import { ProductService } from '@app-core/services/product.service';
+import { IProductDetails } from '@app-core/interfaces/product-details.interface';
+import { BaseComponent } from '@app-core/components/base.components';
+import { CheckoutService } from '@app-core/services/checkout.service';
+import { ICartProduct } from '@app-core/interfaces/cart-product.interface';
+import { RouteUrls } from '@app-core/constants/route.urls.constants';
 
 @Component({
   selector: 'app-product-details-page',
