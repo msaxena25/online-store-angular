@@ -21,6 +21,8 @@
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true, // Required for default imports like `import x from`
     "lib": [
       "ES2022",
       "dom"

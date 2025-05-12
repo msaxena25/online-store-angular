@@ -4,6 +4,10 @@ export const productServiceSpy = {
     getProductDetail: jasmine.createSpy('getProductDetail')
 };
 
+export const checkoutServiceSpy = {
+    addToCart: jasmine.createSpy('addToCart')
+};
+
 import { Subject } from 'rxjs';
 
 export const filterChangedSubject$ = new Subject<any>();
@@ -20,7 +24,7 @@ export const activatedRouteSpy = {
         paramMap: {
             get: jasmine.createSpy('get').and.callFake((param: string) => {
                 const params: { [key: string]: string } = {
-                    id: '123',
+                    id: '1',
                     search: 'test-search'
                 };
                 return params[param] || null;
