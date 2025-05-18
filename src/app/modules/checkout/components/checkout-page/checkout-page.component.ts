@@ -68,7 +68,7 @@ export class CheckoutPageComponent extends BaseComponent {
       this.loaderService.hide();
       this.checkoutService.clearRecordsFromCarts();
       this.navigateTo(RouteUrls.route.acknowledge);
-    }, 2000);
+    }, 500);
 
   }
 }

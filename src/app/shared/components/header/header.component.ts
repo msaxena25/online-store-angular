@@ -38,11 +38,11 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   }
 
   onProductSearch() {
-    if (location.pathname === `/${RouteUrls.route.home}`) {
-      this.navigateWithQuery(RouteUrls.route.productList, {search: this.productSearchText}); 
-    } else {
+    if (location.pathname === `/${RouteUrls.route.productList}`) {
       this.navigateTo(RouteUrls.route.productList);
       this.productFilterService.updateFilter({ productName: this.productSearchText });
+    } else {
+      this.navigateWithQuery(RouteUrls.route.productList, {search: this.productSearchText}); 
     }
     
   }
