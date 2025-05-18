@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
-import { IProduct } from '../interfaces/product.interface';
-import { IProductDetails } from '../interfaces/product-details.interface';
-import { ApiUrls } from '../constants/api.urls.constants';
+import { IProduct } from '../../interfaces/product.interface';
+import { IProductDetails } from '../../interfaces/product-details.interface';
+import { ApiUrls } from '../../constants/api.urls.constants';
 
 @Injectable({
   providedIn: 'root'

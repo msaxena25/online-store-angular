@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICartProduct } from '../interfaces/cart-product.interface';
+import { ICartProduct } from '../../interfaces/cart-product.interface';
 
 const DB_NAME = 'YCompanyDB';
 const STORE_NAME = 'CartItems';

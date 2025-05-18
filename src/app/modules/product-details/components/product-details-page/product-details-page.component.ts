@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ProductService } from '@app-core/services/product.service';
+import { ProductService } from '@app-core/services/product/product.service';
 import { IProductDetails } from '@app-core/interfaces/product-details.interface';
 import { BaseComponent } from '@app-core/components/base.components';
-import { CheckoutService } from '@app-core/services/checkout.service';
+import { CheckoutService } from '@app-core/services/checkout/checkout.service';
 import { ICartProduct } from '@app-core/interfaces/cart-product.interface';
 import { RouteUrls } from '@app-core/constants/route.urls.constants';
 

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { ICartProduct } from '../interfaces/cart-product.interface';
-import { IndexDbService } from './index-db.service';
-import { ApiUrls } from '../constants/api.urls.constants';
+import { ICartProduct } from '../../interfaces/cart-product.interface';
+import { ApiUrls } from '../../constants/api.urls.constants';
+import { IndexDbService } from '../indexdb/index-db.service';
 
 @Injectable({
   providedIn: 'root'

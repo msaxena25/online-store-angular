@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { IndexDbService } from './index-db.service';
 
 describe('IndexDbService', () => {

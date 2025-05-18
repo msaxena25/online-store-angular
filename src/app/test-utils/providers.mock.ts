@@ -1,8 +1,8 @@
-import { ProductService } from '@app-core/services/product.service';
-import { ProductFilterService } from '@app-core/services/product-filter.service';
+import { ProductService } from '@app-core/services/product/product.service';
+import { ProductFilterService } from '@app-core/services/product-filter/product-filter.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { activatedRouteSpy, checkoutServiceSpy, productFilterServiceSpy, productServiceSpy, routerSpy } from '@app-test-utils/service.mock';
-import { CheckoutService } from '@app-core/services/checkout.service';
+import { CheckoutService } from '@app-core/services/checkout/checkout.service';
 
 const mocks = {
     productService: { provide: ProductService, useValue: productServiceSpy },

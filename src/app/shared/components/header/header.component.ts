@@ -2,8 +2,8 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
 import { BaseComponent } from '@app-core/components/base.components';
 import { IHeaderConfig } from '@app-core/constants/header.config';
 import { RouteUrls } from '@app-core/constants/route.urls.constants';
-import { CheckoutService } from '@app-core/services/checkout.service';
-import { ProductFilterService } from '@app-core/services/product-filter.service';
+import { CheckoutService } from '@app-core/services/checkout/checkout.service';
+import { ProductFilterService } from '@app-core/services/product-filter/product-filter.service';
 
 @Component({
   selector: 'app-header',

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IFilterState, IProductFilter } from '../interfaces/product-filter.interface';
-import { IProduct } from '../interfaces/product.interface';
+import { IFilterState, IProductFilter } from '../../interfaces/product-filter.interface';
+import { IProduct } from '../../interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root'
