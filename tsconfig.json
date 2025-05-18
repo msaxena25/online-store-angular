@@ -33,7 +33,10 @@
       ],
       "@app-test-utils/*": [
         "src/app/test-utils/*"
-      ]
+      ],
+      "@app-shared/*": [
+        "src/app/shared/*"
+      ],
     }
   },
   "angularCompilerOptions": {
