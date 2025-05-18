@@ -45,7 +45,6 @@ export class IndexDbService {
 
     request.onsuccess = (event) => {
       this.db = (event.target as IDBRequest).result;
-      console.log('IndexedDB created successfully', this.db?.name);
     };
 
     request.onerror = (event) => {

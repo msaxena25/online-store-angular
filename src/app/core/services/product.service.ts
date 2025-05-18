@@ -52,8 +52,6 @@ export class ProductService {
   loadProducts(): Observable<IProduct[]> {
     return this.http.get<any[]>(ApiUrls.urls.products).pipe(
       catchError(error => {
-        // Log the error to the console for debugging
-        console.error('Error fetching products', error);
         return of([]);
       })
     );
@@ -62,8 +60,6 @@ export class ProductService {
   getProductDetail(productId: number): Observable<IProductDetails[]> {
     return this.http.get<any>(`${ApiUrls.urls.productDetail}`).pipe(
       catchError(error => {
-        console.error('Error fetching product data', error);
-        // Return a fallback observable with an empty array or custom error message
         return of([]);
       })
     );

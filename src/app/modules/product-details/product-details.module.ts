@@ -15,7 +15,4 @@ import { ProductDetailsPageComponent } from './components/product-details-page/p
   ]
 })
 export class ProductDetailsModule { 
-  constructor() {
-    console.log('called')
-  }
 }

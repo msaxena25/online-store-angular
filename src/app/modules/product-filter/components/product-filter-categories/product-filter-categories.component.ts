@@ -30,7 +30,6 @@ export class ProductFilterCategoriesComponent extends BaseComponent {
         this.loadFilterState();
       },
       error: (error) => {
-        console.error('Error loading filter options:', error);  // Handle error
       }
     }
     );
