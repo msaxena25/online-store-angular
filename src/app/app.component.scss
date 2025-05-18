@@ -1,13 +1,19 @@
+.row {
+  margin: 0;
 
+  * {
+    padding: 0;
+  }
+}
 
   .parent-div {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding: 0;
 
     .content-div {
         flex: 1;
-        padding: 2rem;
         background: #f5f5f5;
         overflow: auto;
         /* allows scrolling if content is large */

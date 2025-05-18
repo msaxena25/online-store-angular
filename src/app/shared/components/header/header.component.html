@@ -8,19 +8,24 @@
           <i class="bi" [ngClass]="{'bi-list': !isSidebarOpen, 'bi-x-lg': isSidebarOpen}"></i>
         </button>
       </div>
-      <div *ngIf="headerConfig.showLogo" class="col-8">
+      <div *ngIf="headerConfig.showLogo" class="col-7">
         <!-- Company Name -->
         <a class="navbar-brand text-yellow" href="#">Y Company</a>
 
       </div>
       <!-- User Icon and Checkout Icon on the Right -->
-      <div *ngIf="headerConfig.showUser" class="col-2">
-
-        <!-- Checkout Icon -->
-        <a href="#" class="text-white">
-          <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
+     <div class="col-3">
+      <div class="d-flex">
+        <!-- User Icon -->
+        <a *ngIf="headerConfig.showUser" href="#" class="text-white me-3">
+          <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
         </a>
+        <div *ngIf="headerConfig.showBag" class="cart-icon text-white" (click)="goToBag()">
+          <i class="bi bi-bag"></i>
+          <span class="badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+        </div>
       </div>
+     </div>
 
     </div>
     <!-- Navbar Links and Search -->
