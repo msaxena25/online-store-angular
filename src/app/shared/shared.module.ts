@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

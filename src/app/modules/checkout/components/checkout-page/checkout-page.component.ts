@@ -63,7 +63,12 @@ export class CheckoutPageComponent extends BaseComponent {
   }
 
   onPlaceOrdder() {
-    this.checkoutService.clearRecordsFromCarts();
-    this.navigateTo(RouteUrls.route.acknowledge);
+    this.loaderService.show();
+    setTimeout(() => {
+      this.loaderService.hide();
+      this.checkoutService.clearRecordsFromCarts();
+      this.navigateTo(RouteUrls.route.acknowledge);
+    }, 2000);
+
   }
 }

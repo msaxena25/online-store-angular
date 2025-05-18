@@ -5,6 +5,7 @@ import { IProduct } from '@app-core/interfaces/product.interface';
 import { BaseComponent } from '@app-core/components/base.components';
 import { RouteUrls } from '@app-core/constants/route.urls.constants';
 import { ProductFilterMobileViewComponent } from '../../../../modules/product-filter/components/product-filter-mobile-view/product-filter-mobile-view.component';
+
 @Component({
   selector: 'app-product-list-page',
   templateUrl: './product-list-page.component.html',
@@ -41,7 +42,8 @@ export class ProductListPageComponent extends BaseComponent {
           this.laodProductsSuccess(products);
         }
       },
-      error: (err) => {
+      error: () => {
+        this.loaderService.hide();
         // In case of an error, show the error message
         this.loading = false;
         this.errorMessage = 'Something went wrong. Please try again later.';
@@ -78,7 +80,12 @@ export class ProductListPageComponent extends BaseComponent {
   }
 
   viewProductDetail(id: number): void {
-    this.navigateTo(`${RouteUrls.route.product}/${id}`);
+    this.loaderService.show();
+    setTimeout(() => {
+      this.loaderService.hide();
+      this.navigateTo(`${RouteUrls.route.product}/${id}`);
+    }, 500);
+
   }
 
 

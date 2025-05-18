@@ -1,5 +1,6 @@
 import { Component, inject, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderService } from '@app-shared/services/loader.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,9 +9,11 @@ import { Subscription } from 'rxjs';
 export abstract class BaseComponent implements OnDestroy {
   route: any;
   router: any;
+  loaderService: LoaderService;
   subscriptions$ = new Subscription();
   constructor() {
     this.route = inject(ActivatedRoute);
+    this.loaderService = inject(LoaderService);
     this.router = inject(Router);
   }
 

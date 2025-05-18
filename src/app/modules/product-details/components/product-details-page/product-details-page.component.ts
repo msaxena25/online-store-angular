@@ -47,7 +47,12 @@ export class ProductDetailsPageComponent extends BaseComponent {
   }
 
   goToBag() {
-    this.navigateTo(RouteUrls.route.checkout);
+    this.loaderService.show();
+    setTimeout(() => {
+      this.loaderService.hide();
+      this.navigateTo(RouteUrls.route.checkout);
+    }, 500);
+  
   }
 
 }
